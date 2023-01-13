@@ -1,6 +1,6 @@
 ﻿namespace Square_mb_ConsoleApp;
 
-public class Program
+public partial class Program
 {
     private static void Main(string[] args)
     {
