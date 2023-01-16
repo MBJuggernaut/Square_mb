@@ -11,6 +11,7 @@
     private double _secondSide;
     private double _thirdSide;
     private double? _square;
+    private bool? _isRight;
 
     public double SideA
     {
@@ -24,7 +25,7 @@
 
     public double SideB
     {
-        get { return _firstSide; }
+        get { return _secondSide; }
         private set
         {
             Validate(value);
@@ -34,7 +35,7 @@
 
     public double SideC
     {
-        get { return _firstSide; }
+        get { return _thirdSide; }
         private set
         {
             Validate(value);
@@ -65,5 +66,16 @@
         }
 
         return (double)_square;
+    }
+
+    public bool IsRight()
+    {
+        if (_isRight is null)
+        {
+             _isRight = SideA == Math.Sqrt(Math.Pow(SideB, 2) + Math.Pow(SideC, 2))
+                || SideB == Math.Sqrt(Math.Pow(SideA, 2) + Math.Pow(SideC, 2))
+                || SideC == Math.Sqrt(Math.Pow(SideB, 2) + Math.Pow(SideA, 2));
+        }
+        return (bool)_isRight;
     }
 }

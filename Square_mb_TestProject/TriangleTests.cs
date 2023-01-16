@@ -41,5 +41,13 @@ namespace Square_mb_TestProject
             Assert.IsNull(figure);
             Assert.IsTrue(catchedError);
         }
+
+        [TestCase(5, 3, 4, ExpectedResult = true)]
+        [TestCase(6, 3, 4, ExpectedResult = false)]
+        public bool IsRight(double a, double b, double c)        
+        {
+            Triangle tr = new Triangle(a, b, c);
+            return tr.IsRight();
+        }
     }
 }
